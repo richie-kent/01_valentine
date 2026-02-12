@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Username❤️</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Insert Username Please</h1>
+        <p>What I always call you</p>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Your Username" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="error-message" class="error" style="display: none;">Oops! That's not the right username. Try again!</div>
+    </div>
+
+    <script>
+        // JavaScript for handling the login
+        const form = document.getElementById('login-form');
+        const usernameInput = document.getElementById('username');
+        const errorMessage = document.getElementById('error-message');
+
+        // Define the correct username (change this to your girlfriend's name or a secret word)
+        const correctUsername = 'anyong'; // Replace with the actual username, e.g., 'Emma' or 'Love'
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevents the form from reloading the page
+
+            if (usernameInput.value.trim().toLowerCase() === correctUsername.toLowerCase()) {
+                // Success: Store login flag and redirect
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'home.html'; // Jump to the main page
+            } else {
+                // Failure: Show error
+                errorMessage.style.display = 'block';
+                usernameInput.value = ''; // Clear the input
+            }
+        });
+    </script>
+</body>
+</html>
