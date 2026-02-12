@@ -1,5 +1,9 @@
 // script.js - Simple JavaScript for interactivity
-
+// Logout functionality
+document.getElementById('logout-btn').addEventListener('click', () => {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'login.html';
+});
 // Get elements from the DOM
 const revealButton = document.getElementById('reveal-button');
 const letter = document.getElementById('letter');
